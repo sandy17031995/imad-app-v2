@@ -6,7 +6,7 @@ var app = express();
 app.use(morgan('combined'));
 
 var articles = {
-articleone: {
+'article-one': {
     title: 'article-one | sandy',
     heading: 'this is article one',
     date: '20 dec 2017',
@@ -24,7 +24,7 @@ articleone: {
             The short story has been considered both an apprenticeship form preceding more lengthy works, and a crafted form in its own right, collected together in books of similar length, price, and distribution as novels. Short story writers may define their works as part of the artistic and personal expression of the form. They may also attempt to resist categorization by genre and fixed formation.
         </p>`
 },
-articletwo: {
+'article-two': {
     title: 'article-two | sandy',
     heading: 'this is article two',
     date: '21 dec 2017',
@@ -33,7 +33,7 @@ articletwo: {
                 hey guys, this is my second article.. im rahul.
         </p>`
 },
-articlethree: {
+'article-three': {
     title: 'article-three | sandy',
     heading: 'this is article three',
     date: '22 dec 2017',
@@ -94,15 +94,15 @@ app.get('/ui/madi.png', function (req, res) {
 });
 
 app.get('/article-two', function(req, res) {
-   res.send(createtemplate(articles.articletwo));
+   res.send(createtemplate(articles.article-two));
 });
 
 app.get('/article-three', function(req, res) {
-   res.send(createtemplate(articles.articlethree));
+   res.send(createtemplate(articles.article-three));
 });
 
 app.get('/article-one', function(req, res) {
-   res.send(createtemplate(articles.articleone));
+   res.send(createtemplate(articles.article-one));
 });
 
 
