@@ -5,7 +5,8 @@ var path = require('path');
 var app = express();
 app.use(morgan('combined'));
 
-var articleone = {
+var articles = {
+articleone: {
     title: 'article-one | sandy',
     heading: 'this is article one',
     date: '20 dec 2017',
@@ -22,6 +23,25 @@ var articleone = {
         <p>
             The short story has been considered both an apprenticeship form preceding more lengthy works, and a crafted form in its own right, collected together in books of similar length, price, and distribution as novels. Short story writers may define their works as part of the artistic and personal expression of the form. They may also attempt to resist categorization by genre and fixed formation.
         </p>`
+},
+articletwo: {
+    title: 'article-two | sandy',
+    heading: 'this is article two',
+    date: '21 dec 2017',
+    content: `
+        <p>
+                hey guys, this is my second article.. im rahul.
+        </p>`
+},
+articlethree: {
+    title: 'article-three | sandy',
+    heading: 'this is article three',
+    date: '22 dec 2017',
+    content: `
+        <p>
+                hey guys, this is my third article.. im sachin.
+        </p>`
+}
 };
 
 function createtemplate(data){
@@ -74,15 +94,15 @@ app.get('/ui/madi.png', function (req, res) {
 });
 
 app.get('/article-two', function(req, res) {
-   res.sendFile(path.join(__dirname, 'ui', 'article-two.html'));
+   res.send(createtemplate(articles.articletwo));
 });
 
 app.get('/article-three', function(req, res) {
-   res.sendFile(path.join(__dirname, 'ui', 'article-three.html')); 
+   res.send(createtemplate(articles.articlethree));
 });
 
 app.get('/article-one', function(req, res) {
-   res.send(createtemplate(articleone));
+   res.send(createtemplate(articles.articleone));
 });
 
 
